@@ -1,6 +1,6 @@
-package com.ashik.sqa.tests;
+package com.ashik.sqa.tests.samples;
 
-import com.ashik.sqa.pages.SamplePage;
+import com.ashik.sqa.pages.samples.SamplePage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
 import org.apache.logging.log4j.LogManager;
@@ -55,7 +55,7 @@ public class SampleTest {
     @Test(priority = 3, description = "This will use parallel driver from BrowserFactory class")
     public void ParallelDriverFromFactoryTest() throws InterruptedException {
         // Your test logic using the driver from factory
-        driver_parallel_from_factory.get("https://www.tallykhata.com");
+        driver_parallel_from_factory.get("https://www.amazon.com/");
         log.info("ParallelDriverFromFactoryTest executed successfully.");
 
     }

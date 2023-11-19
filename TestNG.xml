@@ -1,0 +1,13 @@
+<suite name="MyTestSuite">
+    <test name="MyTest">
+        <!-- Include tests in group section -->
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.ashik.sqa.tests.LoginTest"/>
+        </classes>
+    </test>
+</suite>
