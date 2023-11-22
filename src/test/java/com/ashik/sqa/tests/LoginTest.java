@@ -55,12 +55,14 @@ package com.ashik.sqa.tests;
  * @see BrowserFactory
  * @see LoginPage
  */
+
 import com.ashik.sqa.pages.LoginPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -73,8 +75,9 @@ public class LoginTest {
     private static final Logger log = LogManager.getLogger(LoginTest.class);
     WebDriver driver;
     LoginPage lp;
+
     @BeforeClass
-    public void setUp(){
+    public void setUp() {
         driver = BrowserFactory.createParallelDriver(enums.BrowserType.CHROME);
         driver.manage().window().maximize();
 
@@ -83,7 +86,7 @@ public class LoginTest {
     }
 
     @BeforeMethod
-    public void checkIdentity(){
+    public void checkIdentity() {
         lp.checkBaseUrl();
         log.info("checkIdentity");
     }
@@ -92,22 +95,23 @@ public class LoginTest {
             description = "Checking we are in correct url or not.",
             groups = {"sanity", "regression"})
     public void goToHomePage() throws InterruptedException {
-        lp.goToHomePage();
+        Assert.assertTrue(lp.goToHomePage());
     }
 
     @Test(priority = 2, groups = {"sanity", "regression"})
     public void clickOnSignInSectionTest() throws InterruptedException {
-        lp.clickOnSingInSection();
+        Assert.assertTrue(lp.clickOnSingInSection());
     }
+
     @Test(priority = 3, description = "Clicking on sign-in button", groups = "regression")
-    public void clickOnSignInButtonTest(){
-        lp.clickOnSingInButton();
+    public void clickOnSignInButtonTest() {
+        Assert.assertTrue(lp.clickOnSingInButton());
     }
 
     @AfterClass
-    public void tearUp(){
+    public void tearUp() {
         quitParallelDriver();
-        if (driver != null){
+        if (driver != null) {
             driver.quit();
         }
     }

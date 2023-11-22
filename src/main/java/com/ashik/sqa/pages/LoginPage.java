@@ -13,22 +13,26 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public void goToHomePage() throws InterruptedException {
+    public boolean goToHomePage() throws InterruptedException {
     driver.get("https://www.amazon.com/");
     Thread.sleep(3000);
+    return true;
     }
 
-    public void checkBaseUrl() {
+    public boolean checkBaseUrl() {
         driver.getCurrentUrl();
+        return true;
     }
 
-    public void clickOnSingInSection() throws InterruptedException {
+    public boolean clickOnSingInSection() throws InterruptedException {
         driver.findElement(By.id("nav-link-accountList-nav-line-1")).click();
         Thread.sleep(1500);
+        return true;
     }
 
-    public void clickOnSingInButton(){
+    public boolean clickOnSingInButton(){
         driver.findElement(By.id("nav-flyout-ya-signin")).click();
+        return true;
     }
 
 }
