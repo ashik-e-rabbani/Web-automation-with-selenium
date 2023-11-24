@@ -87,7 +87,7 @@ public class LoginTest {
 
     @BeforeMethod
     public void checkIdentity() {
-        lp.checkBaseUrl();
+        driver.getCurrentUrl();
         log.info("checkIdentity");
     }
 
@@ -95,7 +95,8 @@ public class LoginTest {
             description = "Checking we are in correct url or not.",
             groups = {"sanity", "regression"})
     public void goToHomePage() throws InterruptedException {
-        Assert.assertTrue(lp.goToHomePage());
+        driver.get("https://www.amazon.com/");
+        Thread.sleep(3000);
     }
 
     @Test(priority = 2, groups = {"sanity", "regression"})
@@ -104,6 +105,12 @@ public class LoginTest {
     }
 
     @Test(priority = 3, description = "Clicking on sign-in button", groups = "regression")
+    public void checkAlreadyInSingInPage() {
+        Assert.assertTrue(lp.checkAlreadyInSingInPage());
+    }
+
+
+    @Test(priority = 3, description = "Clicking on sign-in button", groups = "regression", dependsOnMethods = {"checkAlreadyInSingInPage"})
     public void clickOnSignInButtonTest() {
         Assert.assertTrue(lp.clickOnSingInButton());
     }
