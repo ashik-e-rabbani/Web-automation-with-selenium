@@ -8,7 +8,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends BasePage{
 
     @CacheLookup
     @FindBy(id = "nav-link-accountList-nav-line-1")
@@ -23,8 +23,11 @@ public class LoginPage {
 
     private static final Logger log = LogManager.getLogger(LoginPage.class);
 
+
     public LoginPage(WebDriver driver){
-        PageFactory.initElements(driver,this);
+        // Calling the constructor of the parent class with the argument received from test class.
+        super(driver);
+        log.info("Accepting the test page driver param and passing to Base page");
     }
 
 
