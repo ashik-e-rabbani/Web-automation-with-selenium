@@ -4,6 +4,7 @@ public class enums {
 
     public enum BrowserType {
         CHROME,
-        FIREFOX
+        FIREFOX,
+        OPERA
     }
 }

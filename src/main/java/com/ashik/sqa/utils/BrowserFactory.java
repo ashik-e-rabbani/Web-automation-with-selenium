@@ -48,6 +48,9 @@ public class BrowserFactory {
             case FIREFOX:
                 driver = initFirefoxDriver();
                 break;
+            case OPERA:
+                driver = ();
+                break;
             default:
                 throw new IllegalArgumentException("Unsupported browser type: " + browserType);
         }
@@ -71,6 +74,12 @@ public class BrowserFactory {
 
 //        Initialize FirefoxDriver
         return new FirefoxDriver();
+    }
+
+    private static WebDriver initOperaDriver() {
+//        Need to initiate custom driver mechanism.
+//        return new OperaDriver();
+        return null;
     }
 
     public static WebDriver createParallelDriver(enums.BrowserType browserType) {
