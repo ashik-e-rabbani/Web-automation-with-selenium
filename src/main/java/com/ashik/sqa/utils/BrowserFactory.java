@@ -49,7 +49,7 @@ public class BrowserFactory {
                 driver = initFirefoxDriver();
                 break;
             case OPERA:
-                driver = ();
+                driver = initChromeDriver();
                 break;
             default:
                 throw new IllegalArgumentException("Unsupported browser type: " + browserType);
