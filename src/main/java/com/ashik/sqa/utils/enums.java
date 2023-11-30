@@ -7,4 +7,10 @@ public class enums {
         FIREFOX,
         OPERA
     }
+
+    public enum ActionType {
+        CLICK,
+        SEND_KEYS,
+        SEND_INPUT
+    }
 }

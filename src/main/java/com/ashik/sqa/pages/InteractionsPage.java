@@ -1,13 +1,14 @@
 package com.ashik.sqa.pages;
 
+import com.ashik.sqa.utils.ScriptBuilder;
+import com.ashik.sqa.utils.enums;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.interactions.Actions;
+
 
 import java.time.Duration;
 
@@ -43,7 +44,7 @@ public class InteractionsPage extends BasePage {
                 JavascriptExecutor js = (JavascriptExecutor) driver;
 
                 // Execute the JavaScript command to click the radio button
-                js.executeScript("document.getElementById('yesRadio').click()");
+                js.executeScript(ScriptBuilder.buildScript(InteractionsPage.class,"yesRadio", "",enums.ActionType.CLICK));
 
                 return isRadioBtnSelected();
             } catch (Exception e) {
@@ -77,7 +78,7 @@ public class InteractionsPage extends BasePage {
 
     }
 
-    public boolean checkboxBtnInteraction() throws InterruptedException {
+    public boolean checkboxBtnInteraction() throws Exception {
 
         navigateCheckboxSection();
         if (checkboxHome.isDisplayed()) {
@@ -85,7 +86,7 @@ public class InteractionsPage extends BasePage {
         } else {
             log.info("Not displaying checkbox");
             // Execute the JavaScript command to click the checkbox
-            js.executeScript("document.getElementById('tree-node-home').click()");
+            js.executeScript(ScriptBuilder.buildScriptClick(InteractionsPage.class,"checkboxHome"));
         }
 
         return isCheckboxSelected();

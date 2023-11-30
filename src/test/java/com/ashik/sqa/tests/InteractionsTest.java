@@ -34,16 +34,19 @@ public class InteractionsTest {
     @Test(priority = 2, enabled = true)
     public void testUnClickableRadioBtnInteraction() throws InterruptedException {
         Assert.assertTrue(ip.radioBtnInteraction(), String.valueOf(true));
+        Thread.sleep(3000);
     }
 
     @Test(priority = 3, enabled = true)
     public void testIsRadioBtnClicked() throws InterruptedException {
         Assert.assertTrue(ip.radioBtnInteraction(), String.valueOf(true));
+        Thread.sleep(3000);
     }
 
     @Test(priority = 4, enabled = true)
-    public void testCheckboxBtnInteraction() throws InterruptedException {
+    public void testCheckboxBtnInteraction() throws Exception {
         Assert.assertTrue(ip.checkboxBtnInteraction(), String.valueOf(true));
+        Thread.sleep(3000);
     }
 
     @AfterClass
