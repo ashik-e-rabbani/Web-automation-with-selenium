@@ -82,7 +82,7 @@ public class LoginTest {
         driver.manage().window().maximize();
 
         lp = new LoginPage(driver);
-        log.info("Driver Initiated");
+        log.info("Driver Initiated.");
     }
 
     @BeforeMethod
