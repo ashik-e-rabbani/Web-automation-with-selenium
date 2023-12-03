@@ -104,4 +104,10 @@ public class ScriptBuilder {
                 throw new UnsupportedOperationException("Unsupported locator type: " + locatorType);
         }
     }
+
+    public static String newTab(String url){
+        return "\"window.open('\" + linkUrl + \"','_blank');\"";
+    }
+
+
 }
