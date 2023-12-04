@@ -2,7 +2,9 @@ package com.ashik.sqa.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 /**
  * BrowserFactory Class
@@ -60,12 +62,49 @@ public class BrowserFactory {
         return driver;
     }
 
+    public static WebDriver createDriver(enums.BrowserType browserType, ChromeOptions chromeOptions) {
+        WebDriver driver;
+
+        switch (browserType) {
+            case CHROME:
+                driver = initChromeDriver(chromeOptions);
+                break;
+            default:
+                throw new IllegalArgumentException("This browser doesn't support Chrome options " + browserType);
+        }
+
+        // Additional configurations or settings can be applied here
+
+        return driver;
+    }
+    public static WebDriver createDriver(enums.BrowserType browserType, FirefoxOptions firefoxOptions) {
+        WebDriver driver;
+
+        switch (browserType) {
+            case FIREFOX:
+                driver = initFirefoxDriver(firefoxOptions);
+                break;
+            default:
+                throw new IllegalArgumentException("This browser doesn't support Chrome options " + browserType);
+        }
+
+        // Additional configurations or settings can be applied here
+
+        return driver;
+    }
+
     private static WebDriver initChromeDriver() {
 //        Set the path to the ChromeDriver executable for version before Chrome 115 and selenium 4.11
 //        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
 //
 //        Initialize ChromeDriver
         return new ChromeDriver();
+    }    private static WebDriver initChromeDriver(ChromeOptions chromeOptions) {
+//        Set the path to the ChromeDriver executable for version before Chrome 115 and selenium 4.11
+//        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+//
+//        Initialize ChromeDriver
+        return new ChromeDriver(chromeOptions);
     }
 
     private static WebDriver initFirefoxDriver() {
@@ -74,6 +113,13 @@ public class BrowserFactory {
 
 //        Initialize FirefoxDriver
         return new FirefoxDriver();
+    }
+    private static WebDriver initFirefoxDriver(FirefoxOptions firefoxOptions) {
+//        Set the path to the GeckoDriver executable (Firefox driver) before selenium version 4.11
+//        System.setProperty("webdriver.gecko.driver", "path/to/geckodriver");
+
+//        Initialize FirefoxDriver
+        return new FirefoxDriver(firefoxOptions);
     }
 
     private static WebDriver initOperaDriver() {
@@ -99,6 +145,29 @@ public class BrowserFactory {
         // Additional configurations or settings can be applied here
 
         return driver;
+    }
+    public static WebDriver createParallelDriver(enums.BrowserType browserType, ChromeOptions chromeOptions) {
+        WebDriver driver;
+
+        switch (browserType) {
+            case CHROME:
+                driver = initParallelChromeDriver(chromeOptions);
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported browser type: " + browserType);
+        }
+
+        // Additional configurations or settings can be applied here
+
+        return driver;
+    }
+
+    private static WebDriver initParallelChromeDriver(ChromeOptions chromeOptions) {
+        if (driverThreadLocal.get() == null) {
+            WebDriver driver = new ChromeDriver(chromeOptions);
+            driverThreadLocal.set(driver);
+        }
+        return driverThreadLocal.get();
     }
 
     private static WebDriver initParallelChromeDriver() {
