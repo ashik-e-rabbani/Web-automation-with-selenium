@@ -1,6 +1,5 @@
 package com.ashik.sqa.tests;
 
-import com.ashik.sqa.pages.LinkPage;
 import com.ashik.sqa.pages.UploadAndDownloadPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
@@ -14,7 +13,9 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
 import java.util.Map;
+
 
 public class UploadAndDownloadTest {
 
@@ -23,16 +24,21 @@ public class UploadAndDownloadTest {
     ChromeOptions chromeOptions;
     UploadAndDownloadPage uadp;
 
+    /* Receving parameter from test suite testng.xml and using it through the variable */
     @BeforeClass
     @Parameters({"default_directory"})
     public void setUp(String default_directory) {
         // Set Chrome options for download preferences
         chromeOptions = new ChromeOptions();
+
+        Map<String, Object> value = new HashMap<>();
+        value.put("download.default_directory", default_directory);
+        value.put("download.prompt_for_download", false);
+        value.put("download.directory_upgrade", true);
+        value.put("safebrowsing.enabled", true);
+
         chromeOptions.setExperimentalOption("prefs",
-                Map.of("download.default_directory",default_directory,
-                        "download.prompt_for_download", false,
-                        "download.directory_upgrade", true,
-                        "safebrowsing.enabled", true));
+                value);
 
         driver = BrowserFactory.createParallelDriver(enums.BrowserType.CHROME, chromeOptions);
         uadp = new UploadAndDownloadPage(driver);
