@@ -21,6 +21,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <workingDirectory>/home/ashik/Projects/Web-automation-with-selenium</workingDirectory>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                         <!-- Specify the path to your testng.xml file -->

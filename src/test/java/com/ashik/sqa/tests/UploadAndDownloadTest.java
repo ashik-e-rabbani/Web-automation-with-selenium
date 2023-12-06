@@ -8,10 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +24,7 @@ public class UploadAndDownloadTest {
     /* Receiving parameter from test suite testng.xml and using it through the variable */
     @BeforeClass
     @Parameters({"default_directory"})
-    public void setUp(String default_directory) {
+    public void setUp(@Optional String default_directory) {
         // Set Chrome options for download preferences
         chromeOptions = new ChromeOptions();
 
