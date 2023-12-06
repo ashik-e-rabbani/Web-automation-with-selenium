@@ -1,4 +1,4 @@
-package com.ashik.sqa.tests;
+package com.ashik.sqa.tests.samples;
 
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.DriverManager;

@@ -4,6 +4,13 @@ public class enums {
 
     public enum BrowserType {
         CHROME,
-        FIREFOX
+        FIREFOX,
+        OPERA
+    }
+
+    public enum ActionType {
+        CLICK,
+        SEND_KEYS,
+        SEND_INPUT
     }
 }
