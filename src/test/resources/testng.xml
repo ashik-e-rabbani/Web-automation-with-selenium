@@ -1,0 +1,9 @@
+<suite name="GreatTestSuite">
+    <test name="LoginTest">
+        <parameter name="default_directory" value="/home/ashik/download_by_automation"/>
+        <!-- Include tests in group section -->
+        <classes>
+            <class name="com.ashik.sqa.tests.UploadAndDownloadTest"/>
+        </classes>
+    </test>
+</suite>

@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.Map;
@@ -23,11 +24,12 @@ public class UploadAndDownloadTest {
     UploadAndDownloadPage uadp;
 
     @BeforeClass
-    public void setUp() {
+    @Parameters({"default_directory"})
+    public void setUp(String default_directory) {
         // Set Chrome options for download preferences
         chromeOptions = new ChromeOptions();
         chromeOptions.setExperimentalOption("prefs",
-                Map.of("download.default_directory", "/home/ashik/download_by_automation",
+                Map.of("download.default_directory",default_directory,
                         "download.prompt_for_download", false,
                         "download.directory_upgrade", true,
                         "safebrowsing.enabled", true));
@@ -38,7 +40,7 @@ public class UploadAndDownloadTest {
 
     }
 
-    @Test(priority = 0)
+    @Test(priority = 0, groups = {"regression"})
     public void navigateToPage() {
         try {
             driver.get("https://demoqa.com/upload-download");
@@ -48,7 +50,7 @@ public class UploadAndDownloadTest {
         }
     }
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups = {"regression"})
     public void downloadImage() {
         Assert.assertTrue(uadp.downloadImage());
     }
