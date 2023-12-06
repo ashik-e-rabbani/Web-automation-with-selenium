@@ -24,7 +24,7 @@ public class UploadAndDownloadTest {
     ChromeOptions chromeOptions;
     UploadAndDownloadPage uadp;
 
-    /* Receving parameter from test suite testng.xml and using it through the variable */
+    /* Receiving parameter from test suite testng.xml and using it through the variable */
     @BeforeClass
     @Parameters({"default_directory"})
     public void setUp(String default_directory) {
