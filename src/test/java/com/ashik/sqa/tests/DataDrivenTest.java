@@ -14,6 +14,16 @@ public class DataDrivenTest {
     WebDriver driver;
     DataDrivenPage page;
 
+    // This method provides data to the test method, and testng typically works with 2D array.
+    @DataProvider(name = "searchData")
+    public Object[][] searchData() {
+        return new Object[][]{
+                {"Google", "Selenium"},
+                {"Bing", "TestNG"},
+                {"Yahoo", "WebDriver"}
+        };
+    }
+
     @BeforeClass
     public void setUp()
     {
@@ -34,6 +44,11 @@ public class DataDrivenTest {
             log.error("Error occurred when navigating to page. - " + e);
             throw new RuntimeException(e);
         }
+    }
+
+    @Test(priority = 1, groups = {"regression"}, dataProvider = "searchData")
+    public void sendDataViaTestNgDataProvider(String providersData, String data2) {
+        log.info(providersData);
     }
 
     @AfterClass
