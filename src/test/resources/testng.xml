@@ -1,9 +1,10 @@
 <suite name="GreatTestSuite">
-    <test name="LoginTest">
+    <test name="DataDrivenTest">
         <parameter name="default_directory" value="/home/ashik/download_by_automation"/>
+        <parameter name="url" value="https://www.browserstack.com/guide/data-driven-framework-in-selenium"/>
         <!-- Include tests in group section -->
         <classes>
-            <class name="com.ashik.sqa.tests.UploadAndDownloadTest"/>
+            <class name="com.ashik.sqa.tests.DataDrivenTest"/>
         </classes>
     </test>
 </suite>
