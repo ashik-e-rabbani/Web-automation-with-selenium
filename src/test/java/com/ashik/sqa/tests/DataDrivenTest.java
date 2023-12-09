@@ -3,10 +3,17 @@ package com.ashik.sqa.tests;
 import com.ashik.sqa.DataDrivenPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataDrivenTest {
 
@@ -22,6 +29,20 @@ public class DataDrivenTest {
                 {"Bing", "TestNG"},
                 {"Yahoo", "WebDriver"}
         };
+    }
+
+    @DataProvider(name = "csvData")
+    public Object[][] readCSVData() throws IOException {
+        List<String[]> data = new ArrayList<>();
+
+        // Replace "path/to/your/file.csv" with the actual path to your CSV file
+        try (CSVReader csvReader = new CSVReader(new FileReader("src/test/resources/testdata/testCsvData.csv"))) {
+            data = csvReader.readAll();
+        } catch (CsvException e) {
+            throw new RuntimeException(e);
+        }
+
+        return data.toArray(new Object[0][0]);
     }
 
     @BeforeClass
@@ -49,6 +70,14 @@ public class DataDrivenTest {
     @Test(priority = 1, groups = {"regression"}, dataProvider = "searchData")
     public void sendDataViaTestNgDataProvider(String providersData, String data2) {
         log.info(providersData);
+    }
+
+    @Test(priority = 2, groups = {"regression"}, dataProvider = "csvData")
+    public void testDataFromCSV(String column1, String column2, String column3) {
+        // Your test logic using the provided parameters
+        log.info("Column 1: " + column1);
+        log.info("Column 2: " + column2);
+        log.info("Column 3: " + column3);
     }
 
     @AfterClass
