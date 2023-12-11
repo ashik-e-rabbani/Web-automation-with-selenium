@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -78,6 +79,17 @@ public class DataDrivenTest {
         log.info("Column 1: " + column1);
         log.info("Column 2: " + column2);
         log.info("Column 3: " + column3);
+
+        // Example: Checking multiple conditions using soft asserts
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(column1, "ashik", "Values do not match");
+        softAssert.assertEquals(column2, "28", "Values do not match");
+
+
+        // Additional soft asserts as needed
+
+        // Report all failures at the end of the test
+        softAssert.assertAll();
     }
 
     @AfterClass
