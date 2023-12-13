@@ -1,5 +1,6 @@
 package com.ashik.sqa.tests;
 
+import com.ashik.sqa.listeners.Listner;
 import com.ashik.sqa.pages.UploadAndDownloadPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
@@ -14,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+@Listeners(Listner.class)
 public class UploadAndDownloadTest {
 
     private static final Logger log = LogManager.getLogger(UploadAndDownloadTest.class);
