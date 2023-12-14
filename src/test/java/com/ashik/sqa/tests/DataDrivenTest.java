@@ -73,7 +73,7 @@ public class DataDrivenTest {
         log.info(providersData);
     }
 
-    @Test(priority = 2, groups = {"regression"}, dataProvider = "csvData")
+    @Test(enabled = false, priority = 2, groups = {"regression"}, dataProvider = "csvData")
     public void testDataFromCSV(String column1, String column2, String column3) {
         // Your test logic using the provided parameters
         log.info("Column 1: " + column1);

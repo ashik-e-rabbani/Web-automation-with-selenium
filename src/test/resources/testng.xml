@@ -1,4 +1,7 @@
 <suite name="GreatTestSuite">
+    <listeners>
+        <listener class-name="com.ashik.sqa.listeners.ParrotListner" />
+    </listeners>
     <test name="DataDrivenTest">
         <parameter name="default_directory" value="/home/ashik/download_by_automation"/>
         <parameter name="url" value="https://www.browserstack.com/guide/data-driven-framework-in-selenium"/>
