@@ -4,6 +4,8 @@ import com.ashik.sqa.listeners.ParrotListner;
 import com.ashik.sqa.pages.UploadAndDownloadPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -15,6 +17,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
+@Feature("Upload and Download Files")
+@Story("On this section we will see how to interact and handle download and" +
+        "upload mechanism via browsers.")
 @Listeners(ParrotListner.class)
 public class UploadAndDownloadTest {
 

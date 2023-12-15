@@ -5,6 +5,8 @@ import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvException;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -16,6 +18,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Feature("Your Feature")
+@Story("Your Story")
 public class DataDrivenTest {
 
     private static final Logger log = LogManager.getLogger(DataDrivenTest.class);

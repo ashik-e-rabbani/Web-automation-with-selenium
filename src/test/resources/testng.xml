@@ -1,13 +1,14 @@
 <suite name="GreatTestSuite">
     <listeners>
         <listener class-name="com.ashik.sqa.listeners.ParrotListner" />
+        <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
     <test name="DataDrivenTest">
         <parameter name="default_directory" value="/home/ashik/download_by_automation"/>
         <parameter name="url" value="https://www.browserstack.com/guide/data-driven-framework-in-selenium"/>
         <!-- Include tests in group section -->
         <classes>
-            <class name="com.ashik.sqa.tests.DataDrivenTest"/>
+            <class name="com.ashik.sqa.tests.UploadAndDownloadTest"/>
         </classes>
     </test>
 </suite>
