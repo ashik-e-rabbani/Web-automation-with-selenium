@@ -3,6 +3,7 @@ package com.ashik.sqa.tests;
 import com.ashik.sqa.listeners.ParrotListner;
 import com.ashik.sqa.pages.UploadAndDownloadPage;
 import com.ashik.sqa.utils.BrowserFactory;
+import com.ashik.sqa.utils.ScreenSnap;
 import com.ashik.sqa.utils.enums;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
@@ -15,7 +16,6 @@ import org.testng.annotations.*;
 
 import java.util.HashMap;
 import java.util.Map;
-
 
 
 @Feature("Upload and Download Files")
@@ -51,10 +51,15 @@ public class UploadAndDownloadTest {
 
     }
 
+    public void takeScreenshot() {
+        ScreenSnap.takeScreenshot(driver);
+    }
+
     @Test(priority = 0, groups = {"regression"})
     public void navigateToPage() {
         try {
             driver.get("https://demoqa.com/upload-download");
+            takeScreenshot();
         } catch (Exception e) {
             log.error("Error occurred when navigating to page. - " + e);
             throw new RuntimeException(e);
