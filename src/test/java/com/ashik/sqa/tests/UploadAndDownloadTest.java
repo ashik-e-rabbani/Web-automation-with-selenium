@@ -55,11 +55,16 @@ public class UploadAndDownloadTest {
         ScreenSnap.takeScreenshot(driver);
     }
 
+    public void takeAllureScreenshot() {
+        ScreenSnap.takeAllureScreenshot(driver);
+    }
+
     @Test(priority = 0, groups = {"regression"})
     public void navigateToPage() {
         try {
             driver.get("https://demoqa.com/upload-download");
             takeScreenshot();
+            takeAllureScreenshot();
         } catch (Exception e) {
             log.error("Error occurred when navigating to page. - " + e);
             throw new RuntimeException(e);
@@ -74,6 +79,7 @@ public class UploadAndDownloadTest {
     @Test(priority = 2)
     public void uploadFile() {
         Assert.assertTrue(uadp.uploadFile("/home/ashik/Pictures/gift.jpg"));
+        takeAllureScreenshot();
     }
 
     @AfterClass

@@ -1,9 +1,13 @@
 package com.ashik.sqa.utils;
 
+import io.qameta.allure.Allure;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,6 +18,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ScreenSnap {
+    private static final Logger log = LogManager.getLogger(ScreenSnap.class);
+
     public static void takeScreenshot(WebDriver driver) {
         // Convert WebDriver object to TakesScreenshot
         TakesScreenshot screenshot = (TakesScreenshot) driver;
@@ -53,6 +59,17 @@ public class ScreenSnap {
         }
     }
 
+    public static void takeAllureScreenshot(WebDriver driver) {
+        // Convert WebDriver object to TakesScreenshot
+        TakesScreenshot screenshot = (TakesScreenshot) driver;
+
+        // Capture screenshot as a byte array
+        byte[] screenshotBytes = screenshot.getScreenshotAs(OutputType.BYTES);
+
+        // Attach the screenshot to Allure report
+        Allure.addAttachment("Screenshot", new ByteArrayInputStream(screenshotBytes));
+        log.info("Screenshot captured and attached to Allure report.");
+    }
 
 }
 
