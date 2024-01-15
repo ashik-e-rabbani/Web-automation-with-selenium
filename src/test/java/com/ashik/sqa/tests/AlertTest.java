@@ -1,6 +1,5 @@
 package com.ashik.sqa.tests;
 
-import com.ashik.sqa.DataDrivenPage;
 import com.ashik.sqa.pages.AlertPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
@@ -16,10 +15,8 @@ public class AlertTest {
     AlertPage page;
 
 
-
     @BeforeClass
-    public void setUp()
-    {
+    public void setUp() {
         driver = BrowserFactory.createParallelDriver(enums.BrowserType.CHROME);
         page = new AlertPage(driver);
 
@@ -41,21 +38,25 @@ public class AlertTest {
     }
 
     @Test(priority = 1)
-    public void testRegularAlert(){
+    public void testRegularAlert() {
         Assert.assertTrue(page.clickAlertButton());
 
-    }    @Test(priority = 2)
-    public void tesrAlertWithTimer(){
+    }
+
+    @Test(priority = 2)
+    public void tesrAlertWithTimer() {
         Assert.assertTrue(page.clickAlertButtonWithTimer());
 
     }
+
     @Test(priority = 3)
-    public void testAlertAction(){
+    public void testAlertAction() {
         Assert.assertTrue(page.clickAlertActionButton());
 
     }
+
     @Test(priority = 3)
-    public void testPassDataToAction(){
+    public void testPassDataToAction() {
         Assert.assertTrue(page.passDataToAction());
 
     }

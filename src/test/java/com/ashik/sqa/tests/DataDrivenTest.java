@@ -1,6 +1,6 @@
 package com.ashik.sqa.tests;
 
-import com.ashik.sqa.DataDrivenPage;
+import com.ashik.sqa.pages.DataDrivenPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
 import com.opencsv.CSVReader;
@@ -52,12 +52,12 @@ public class DataDrivenTest {
     }
 
     @BeforeClass
-    public void setUp()
-    {
+    public void setUp() {
         driver = BrowserFactory.createParallelDriver(enums.BrowserType.CHROME);
         page = new DataDrivenPage(driver);
 
     }
+
     @Test(priority = 0, groups = {"regression"})
     @Parameters({"url"})
     public void navigateToPage(@Optional String url) {

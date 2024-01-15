@@ -1,4 +1,4 @@
-package com.ashik.sqa;
+package com.ashik.sqa.pages;
 
 import com.ashik.sqa.pages.BasePage;
 import org.openqa.selenium.WebDriver;

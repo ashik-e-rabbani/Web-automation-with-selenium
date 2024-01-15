@@ -78,6 +78,7 @@ public class UploadAndDownloadTest {
 
     @Test(priority = 2)
     public void uploadFile() {
+        //Don't forget to update file path
         Assert.assertTrue(uadp.uploadFile("/home/ashik/Pictures/gift.jpg"));
         takeAllureScreenshot();
     }
