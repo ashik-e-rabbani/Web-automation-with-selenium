@@ -46,7 +46,7 @@ These dependencies provide functionalities for browser automation, testing frame
 - **[Allure Screenshots](https://github.com/ashik-e-rabbani/Web-automation-with-selenium/commit/2a9cc16b3e3c6b08a69dfd4d1cb770dd67afb7b1)**: Introduces the capturing of screenshots with Allure.
 
 - **[TestNG DataProviders](https://github.com/ashik-e-rabbani/Web-automation-with-selenium/commit/5740ab96ce98a6d3136beae355a6667af75b7873)**: Explains the usage of TestNG DataProviders for data-driven testing.
-- 
+
 - **[Parallel Test execution](https://github.com/ashik-e-rabbani/Web-automation-with-selenium/commit/5fca6ac5ae3628ea48ef04a55f53a65f2bab18d7)**: Use the paraller driver initalization thru ThreadLocal so each test class will have different driver thread to perform individual actions.
 
 ... (and so on)
