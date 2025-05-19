@@ -1,3 +1,4 @@
 
 .allure/*
 allure-results
+/target
