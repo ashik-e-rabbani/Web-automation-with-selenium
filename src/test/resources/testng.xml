@@ -3,12 +3,20 @@
         <listener class-name="com.ashik.sqa.listeners.ParrotListner" />
         <listener class-name="io.qameta.allure.testng.AllureTestNg" />
     </listeners>
-    <test name="DataDrivenTest">
+    <test name="HeadlessTest">
         <parameter name="default_directory" value="/home/ashik/download_by_automation"/>
         <parameter name="url" value="https://www.browserstack.com/guide/data-driven-framework-in-selenium"/>
         <!-- Include tests in group section -->
         <classes>
-            <class name="com.ashik.sqa.tests.UploadAndDownloadTest"/>
+            <class name="com.ashik.sqa.tests.HeadlessBrowserTest"/>
+        </classes>
+    </test>
+    <test name="UiInteractionTest">
+        <parameter name="default_directory" value="/home/ashik/download_by_automation"/>
+        <parameter name="url" value="https://www.browserstack.com/guide/data-driven-framework-in-selenium"/>
+        <!-- Include tests in group section -->
+        <classes>
+            <class name="com.ashik.sqa.tests.ButtonInteractionsTest"/>
         </classes>
     </test>
 </suite>
