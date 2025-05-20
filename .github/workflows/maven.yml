@@ -28,6 +28,27 @@ jobs:
         distribution: 'adopt'
         java-version: '15'
 
-    - name: Run headless test
-      run: mvn -Dtest=HeadlessBrowserTest test
+    - name: Set up Maven
+      uses: stCarolas/setup-maven@v4.5
+      with:
+        maven-version: '3.9.3'
+
+    - name: Run Tests
+      run: mvn clean test
+
+    - name: Install Allure CLI
+      run: |
+        sudo apt-add-repository ppa:qameta/allure
+        sudo apt-get update
+        sudo apt-get install allure
+
+    - name: Generate Allure Report
+      run: |
+        allure generate target/allure-results --clean -o target/allure-report
+
+    - name: Upload Allure Report as Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-report
+        path: target/allure-report
 

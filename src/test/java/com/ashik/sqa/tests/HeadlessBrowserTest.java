@@ -3,6 +3,7 @@ package com.ashik.sqa.tests;
 import com.ashik.sqa.pages.HeadlessBrowserPage;
 import com.ashik.sqa.utils.BrowserFactory;
 import com.ashik.sqa.utils.enums;
+import io.qameta.allure.Description;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -16,6 +17,7 @@ public class HeadlessBrowserTest {
     ChromeOptions options;
     HeadlessBrowserPage page;
     @BeforeClass
+    @Description("Running browser in headless mode")
     public void setUp(){
         options = new ChromeOptions();
         options.addArguments("--headless");
